@@ -10,3 +10,31 @@
 2. Place `InfiniteScroll.razor` under Components
 3. Place `InfiniteScroll.js` under wwwroot
 4. Place `Loading.gif` under wwwroot
+
+## Example 
+
+```html
+<FluentStack 
+	HorizontalAlignment="HorizontalAlignment.Center"
+	Style="width: 100%;">
+	
+	<InfiniteScroll
+		Orientation="Orientation.Vertical"
+		HorizontalAlignment="HorizontalAlignment.Center"
+		Items="@([1, 1, 1, 1, 1, 1, 1, 1])"
+		Callback="@_Callback"
+		LoadingAnimation="3000"
+		Style="width: 300px; overflow-y: scroll; height: 40vh;border: 1px dotted black;">
+		
+		<p>Hello</p>
+	</InfiniteScroll>
+</FluentStack>
+
+@code{
+
+	private async Task<List<object>> _Callback() {
+
+		return (new List<int>() {1, 1, 1}).Cast<object>().ToList();
+	}
+}
+```
