@@ -24,7 +24,7 @@
 		Items="@([1, 1, 1, 1, 1, 1, 1, 1])"
 		Callback="@_Callback"
 		LoadingAnimation="3000"
-		Style="width: 300px; overflow-y: scroll; height: 40vh;border: 1px dotted black;">
+		Style="width: 300px; overflow-y: scroll; height: 40vh; border: 1px dotted black;">
 		
 		<p>Hello</p>
 	</InfiniteScroll>
