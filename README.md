@@ -5,8 +5,8 @@ A custom blazor component for [FluentUI](https://www.fluentui-blazor.net) which 
 ## Usage
 
 1. create blazor web application (server)
-  a. `dotnet new blazor` (or)
-  b. `dotnet new fluentblazor`  
+   `dotnet new blazor` (or)
+   `dotnet new fluentblazor`  
 3. place `InfiniteScroll.razor` under Components
 4. place `InfiniteScroll.js` under wwwroot
 5. place `Loading.gif` under wwwroot
