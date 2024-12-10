@@ -6,7 +6,7 @@
 </div>
 <br>
 
->A custom blazor component for [FluentUI](https://www.fluentui-blazor.net) which acts as a container for dynamically adding content while being scrolled. Use the native [`<Virtualize>`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-9.0) tag if you have millions of items and need optimization/offloading when they are outside the view. This is a simple component with predictable behavior suitable for lighter usecases. Most importantly unlike `<Virtualize>` there is no funny crazy business going on.
+>A custom blazor component for [FluentUI](https://www.fluentui-blazor.net) which acts as a container for dynamically adding content while being scrolled. Use the native [`<Virtualize>`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-9.0) tag if you have millions of items and need optimization/offloading when they are outside the view. This is a simple component with predictable behavior suitable for lighter usecases. Most importantly unlike `<Virtualize>` there is no funny business happening in the html behind.
 
 ## Usage
 
