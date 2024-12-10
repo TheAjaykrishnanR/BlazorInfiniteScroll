@@ -1,5 +1,6 @@
 # InfiniteScroll
 
+<br>
 <div align="center">
 	<img src="https://github.com/TheAjaykrishnanR/BlazorInfiniteScroll/blob/main/demo.gif" style="width: 400px;"/>
 </div>
