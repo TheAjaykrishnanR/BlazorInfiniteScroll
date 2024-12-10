@@ -4,9 +4,9 @@
 
 ## Usage
 
-1. create blazor web application (server)
+1. Create blazor web application (server)
    `dotnet new blazor` (or)
    `dotnet new fluentblazor`  
-3. place `InfiniteScroll.razor` under Components
-4. place `InfiniteScroll.js` under wwwroot
-5. place `Loading.gif` under wwwroot
+2. Place `InfiniteScroll.razor` under Components
+3. Place `InfiniteScroll.js` under wwwroot
+4. Place `Loading.gif` under wwwroot
