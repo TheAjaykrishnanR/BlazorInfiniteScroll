@@ -1,7 +1,7 @@
 # InfiniteScroll
 
-<div align="center">
-	<img src="https://github.com/TheAjaykrishnanR/BlazorInfiniteScroll/blob/main/demo.gif"/>
+<div align="center" style="margin: 50px;">
+	<img src="https://github.com/TheAjaykrishnanR/BlazorInfiniteScroll/blob/main/demo.gif" style="width: 400px;"/>
 </div>
 
 >A custom blazor component for [FluentUI](https://www.fluentui-blazor.net) which acts as a container for dynamically adding content while being scrolled. Use the native `<Virtualize>` tag if you have millions of items and need optimization/offloading of items when they are outside the view.
