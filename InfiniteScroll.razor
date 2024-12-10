@@ -1,0 +1,94 @@
+@rendermode InteractiveServer
+@inject IJSRuntime JSRuntime
+
+<script src="InfiniteScroll.js"></script>
+
+<FluentStack
+    id="infinite-scroller"
+    Orientation="@Orientation"
+    HorizontalAlignment="@HorizontalAlignment"
+    VerticalAlignment="@VerticalAlignment"
+    VerticalGap="@VerticalGap"
+    Style="@Style">
+   
+    @foreach(var item in Items) {
+        @ChildContent(item)
+    }
+
+    @if(isFeedLoading) {
+    <FluentStack
+        Orientation="Orientation.Horizontal"
+        HorizontalAlignment="HorizontalAlignment.Center"
+        VerticalAlignment="VerticalAlignment.Center" 
+        Style="@($"width: {ItemWidth}px;")">
+        <img src="images/videoFeedLoading.gif" style="width: 20px;">
+    </FluentStack>
+    }
+    <div style="width: 100%; height: 200px;"></div>
+</FluentStack>
+
+@code {
+
+    [Parameter]
+    public Orientation Orientation {get; set;} = default!;
+
+    [Parameter]
+    public HorizontalAlignment HorizontalAlignment {get; set;} = default!;
+
+    [Parameter]
+    public VerticalAlignment VerticalAlignment {get; set;} = default!;
+
+    [Parameter]
+    public int VerticalGap {get; set;} = default!;
+
+    [Parameter]
+    public string Style {get; set;} = default!;
+
+    [Parameter]
+    public List<object> Items {get; set;} = []; 
+
+    [Parameter]
+    public int ItemWidth {get; set;} = default!;
+    
+    [Parameter]
+    public RenderFragment<object> ChildContent {get; set;} = default!;
+
+    /*
+        Add to Items list from this callback in the consumer page,
+        the callback system ensures that this component is independent of 
+        the specific retrieval system which is subject to change and is 
+        situation dependent. The callback pattern allows for this component
+        to be oblivious of how the Items list is appended.
+    */
+  
+    [Parameter]
+    public Func<Task<List<object>>> Callback {get; set;} = default!;
+
+    [Parameter]
+    public int LoadingAnimation {get; set;} = 1000;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if(firstRender) {
+
+            await JSRuntime.InvokeVoidAsync("attachEndHitEventHandler", "infinite-scroller", DotNetObjectReference.Create(this));
+            
+            StateHasChanged();
+        }
+    }
+
+    bool isFeedLoading = false;
+
+    [JSInvokable]
+    public async Task addItems() {
+        
+        isFeedLoading = true;
+        StateHasChanged();
+        
+        await Task.Delay(LoadingAnimation);
+        isFeedLoading = false;
+
+        Items.AddRange(await Callback());
+        StateHasChanged();
+    }
+}    
+
